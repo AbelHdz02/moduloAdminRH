@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Modulo Administracion RH</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Main CSS-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Font-icon css-->
+	<style type="text/css">
+		#component_Title {
+			justify-content: center;
+			background-color: #ffff;
+		}
+	</style>
+</head>
+
+<body class="app sidebar-mini">
+	<!-- Navbar-->
+	<header class="app-header"><a class="app-header__logo" href="index.html">RH</a>
+		<!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+			aria-label="Hide Sidebar"></a>
+		<!-- Navbar Right Menu-->
+		<ul class="app-nav">
+			<li class="app-search">
+				<input class="app-search__input" type="search" placeholder="Buscar">
+				<button class="app-search__button"><i class="fa fa-search"></i></button>
+			</li>
+			<!--Notification Menu-->
+			<li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+					aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
+				<ul class="app-notification dropdown-menu dropdown-menu-right">
+					<li class="app-notification__title">No tienes notifiaciones.</li>
+					<li class="app-notification__footer"><a href="#">........</a></li>
+				</ul>
+			</li>
+			<!-- User Menu-->
+			<li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+					aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+				<ul class="dropdown-menu settings-menu dropdown-menu-right">
+					<li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Ajustes</a></li>
+					<li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Perfil</a></li>
+					<li><a class="dropdown-item" href="p#"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside class="app-sidebar">
+		<div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/images.png" alt="User Image"
+				style="height: 30px;width: 30px">
+			<div>
+				<p class="app-sidebar__user-name">Abel Hernandez</p>
+				<p class="app-sidebar__user-designation">Desarrollador</p>
+			</div>
+		</div>
+		<ul class="app-menu">
+
+			<li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+						class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Menu</span><i
+						class="treeview-indicator fa fa-angle-right"></i></a>
+				<ul class="treeview-menu">
+					<li><a class="treeview-item" href="form_Register.html"><i class="icon fa fa-circle-o"></i>Nuevo
+							Registro</a></li>
+
+					<li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Listar</a></li>
+				</ul>
+			</li>
+		</ul>
+	</aside>
+	<main class="app-content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="bs-component">
+					<ol class="breadcrumb" id="component_Title">
+						<strong class="breadcrumb-item active"><i class="app-menu__icon fa fa-edit"></i>Registro de
+							Personal</strong>
+					</ol>
+
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tile">
+					<form action="" id="formRegister" class="formRegister" onsubmit=" return false">
+						<!--Start Datos Empleado-->
+						<div class="tile-header">
+							<h3>Datos del Empleado</h3>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<input type="hidden" id="txtId" value="0" />
+									<label class="form-control-label" for="txt_numEmpleado">N° Empleado</label>
+									<input class="form-control" id="txt__numEmpleado" name="NumEmpleado" type="text"
+										placeholder="Numero Empleado" maxlength="4"
+										onkeypress=" return((event.keyCode > 47) && (event.keyCode < 58))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										autocomplete="false">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt_apellidoPaterno">Apellido Paterno</label>
+									<input class="form-control" id="txt__apellidoPaterno" type="text"
+										name="ApellidoPaterno" placeholder="Apellido paterno" maxlength="100"
+										onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__rfc">RFC</label>
+									<input class="form-control inputValue2" id="txt__rfc" type="text" name="RFC"
+										placeholder="RFC" maxlength="12" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+									((event.keyCode > 96) && (event.keyCode < 123)) || ((event.keyCode > 64) && (event.keyCode < 91)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__apellidoMaterno">
+										Apellido
+										Materno
+									</label>
+									<input class="form-control" id="txt__apellidoMaterno" type="text"
+										name="ApellidoMaterno" placeholder="Apellido Materno" maxlength="100"
+										onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__genero">Género</label>
+									<select class="form-control" name="Genero" id="txt__genero" maxlength="9"
+										onkeypress=" return((event.keyCode > 64) && (event.keyCode < 91))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+										<option value=" " disabled>---Selecionar---</option>
+										<option value="MASCULINO">MASCULINO</option>
+										<option value="FEMENINO">FEMENINO</option>
+										<option value="OTROS">OTROS</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__nombres">Nombres</label>
+									<input class="form-control" id="txt__nombres" type="text" name="Nombres"
+										placeholder="Nombres" maxlength="50" onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91))||(event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+
+							</div>
+						</div>
+						<!--End-->
+						
+						<!--Start Datos Laborales-->
+						<div class="tile-header">
+							<h3>Datos Laborales</h3>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__puesto">Puesto</label>
+									<input class="form-control" id="txt__puesto" type="text" name="Puesto"
+										placeholder="Puesto" maxlength="100" maxlength="100" onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__fechaIngreso">Fecha Ingreso</label>
+									<input class="form-control" id="txt__fechaIngreso" type="date" name="FechaIngreso"
+										maxlength="12"
+										onkeypress=" return(((event.keyCode >= 47) && (event.keyCode < 58)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__nivelCampo">Nivel (Campo)</label>
+									<input class="form-control" id="txt__nivelCampo" type="text" name="NivelCampo"
+										placeholder="Nivel" maxlength="4"
+										onkeypress=" return((event.keyCode > 47) && (event.keyCode < 58))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__fechaBase">Fecha Base</label>
+									<input class="form-control" id="txt__fechaBase" type="date" name="FechaBase"
+										maxlength="12" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+											(event.keyCode==47))" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__plaza">Plaza</label>
+									<input class="form-control" id="txt__plaza" type="text" name="Plaza"
+										placeholder="Plaza" maxlength="50" onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91))||(event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__relacionLaboral">
+										Relacion
+										Laboral
+									</label>
+									<input class="form-control" id="txt__relacionLaboral" type="text"
+										name="RelacionLaboral" placeholder="Relacion Laboral" maxlength="100"
+										onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+
+							</div>
+						</div>
+						<!--End-->
+
+						<!--Start Area Laboral-->
+						<div class="tile-header">
+							<h3>Area Laboral</h3>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__departamentoArea">
+										Deparatmento o Area
+										Adscripción
+									</label>
+									<input class="form-control" id="txt__departamentoArea" type="text"
+										name="DeparatmentoArea" placeholder="Deparatmento" maxlength="100"
+										onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91)) || ((event.keyCode > 47) && (event.keyCode < 58))||(event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__fechaVacante">Fecha Vacante</label>
+									<input class="form-control" id="txt__fechaVacante" type="date" name="FechaVacante"
+										maxlength="12" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+											(event.keyCode==47) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__municipio">Municipio</label>
+									<input class="form-control" id="txt__municipio" type="text" name="Municipio"
+										placeholder="Municipio" maxlength="100"
+										onkeypress=" return( ((event.keyCode > 96) && (event.keyCode < 123)) ||
+									((event.keyCode > 64) && (event.keyCode < 91)) || ((event.keyCode > 47) && (event.keyCode < 58)) ||(event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__motivoVacante">Motivo Vacante</label>
+									<input class="form-control" id="txt__motivoVacante" type="text" name="MotivoVacante"
+										placeholder="Motivo Vacante" maxlength="50" onkeypress="return(((event.keyCode > 96) &&
+									(event.keyCode < 123)) || ((event.keyCode > 64) && (event.keyCode < 91)) || (event.keyCode == 32))" oninput="if(this.value.length > this.maxLength)
+									this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__status">Estatus</label>
+
+									<select class="form-control" name="Status" id="txt__status" maxlength="8"
+										onkeypress=" return((event.keyCode > 64) && (event.keyCode < 91))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+										<option value=" " disabled>---Selecionar---</option>
+										<option value="Activo">ACTIVO</option>
+										<option value="INACTIVO">INACTIVO</option>
+									</select>
+
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__salarioMensual">Salario Mensual</label>
+									<input class="form-control" id="txt__salarioMensual" type="text"
+										name="SalarioMensual" placeholder="Salario Mensual" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+
+							</div>
+						</div>
+						<!--End-->
+
+						<!-- Start Prestaciones Laborales-->
+						<div class="tile-header">
+							<h3>Prestaciones Laborales</h3>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__desarrolloCapacitacion">
+										Desarrollo y
+										Capacitación
+									</label>
+									<input class="form-control" id="txt__desarrolloCapacitacion" type="text"
+										name="DesarrolloCapacitacion" placeholder="Desarrollo" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__estimuloProductividad">
+										Estimulo por
+										Actividad
+									</label>
+									<input class="form-control" id="txt__estimuloProductividad" type="text"
+										name="EstimuloProductividad" placeholder="Estimulo" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__previsionMultiple">
+										Previsión
+										Multiple
+									</label>
+									<input class="form-control" id="txt__previsionMultiple" type="text"
+										name="PrevisionMultiple" placeholder="Previsión" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__primaAntiguedad">
+										Prima
+										Antiguedad
+									</label>
+									<input class="form-control" id="txt__primaAntiguedad" type="text"
+										name="PrimaAntiguedad" placeholder="Prima Antiguedad" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__laboresCondicionInsalubre">
+										Labores
+										Condiciones
+										Insalubres
+									</label>
+									<input class="form-control" id="txt__laboresCondicionInsalubre" type="text"
+										name="LaboresCondicionInsalubre" placeholder="Condiociones" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__despensa">Despensa</label>
+									<input class="form-control" id="txt__despensa" type="text" name="Despensa"
+										placeholder="Despensa" maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+							</div>
+						</div>
+						<!--End-->
+						<!--Otros Datos-->
+						<div class="tile-header">
+							<h3>Otros Datos</h3>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__compensacion">Compensación</label>
+									<input class="form-control" id="txt__compensacion" type="text" name="Compensacion"
+										placeholder="Compensación" maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__aguinaldoSegunda">
+										Aguinaldo Segunda
+										Parte
+									</label>
+									<input class="form-control" id="txt__aguinaldoSegunda" type="text"
+										name="AguinaldoSegunda" placeholder="Aguinaldo Segunda Parte"
+										maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__percepcionesAnual">
+										Total Percepciones
+										Anuales
+									</label>
+									<input class="form-control" id="txt__percepcionesAnual" type="text"
+										name="PercepcionesAnual" placeholder="Percepciones Anuales" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__nombreCompleto">Nombre Completo</label>
+									<input class="form-control" id="txt__nombreCompleto" type="text"
+										name="NombreCompleto" placeholder="Nombre Completo" maxlength="120"
+										onkeypress=" return(((event.keyCode > 64) && (event.keyCode < 91))
+									|| ((event.keyCode > 96) && (event.keyCode < 123)) ||(event.keyCode == 44)  || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+
+								<div class="form-group">
+									<label class="form-control-label" for="txt__plazaExtra">
+										Plaza (Extra
+										Opcional)
+									</label>
+									<input class="form-control" id="txt__plazaExtra" type="text" name="PlazaExtra"
+										placeholder="Plaza extra" maxlength="120" name="Plaza"
+										onkeypress=" return(((event.keyCode > 64) && (event.keyCode < 91))
+									|| ((event.keyCode > 47) && (event.keyCode < 58))||((event.keyCode > 96) && (event.keyCode < 123)) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__percepcionesMensual">
+										Total Percepciones
+										Mensuales
+									</label>
+									<input class="form-control" id="txt__percepcionesMensual" type="text"
+										name="PercepcionesMensual" placeholder="Percepciones mensuales"
+										maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__primavacacional">Prima Vacaional</label>
+									<input class="form-control" id="txt__primaVacacional" type="text"
+										name="PrimaVacacional" placeholder="Prima Vacacional" maxlength="20"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__nss">NSS</label>
+									<input class="form-control" id="txt__nss" type="text" name="NSS"
+										placeholder="NSS" maxlength="11"
+										onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__clave">Clave</label>
+									<input class="form-control" id="txt__clave" type="text" name="Clave"
+										placeholder="Clave" maxlength="16"
+										onkeypress=" return(((event.keyCode > 64) && (event.keyCode < 91))
+									|| ((event.keyCode > 96) && (event.keyCode < 123)) || ((event.keyCode > 47) && (event.keyCode < 58)) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label class="form-control-label" for="txt__aguinaldoPrimera">
+										Aguinaldo Primera
+										Parte
+									</label>
+									<input class="form-control" id="txt__aguinaldoPrimera" type="text"
+										name="AguinaldoPrimera" placeholder="Aguinaldo Primera Parte"
+										maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__bonoIncentivo">
+										Bono o Incentivo
+										Otorgado
+									</label>
+									<input class="form-control" id="txt__bonoIncentivo" type="text" name="BonoIncentivo"
+										placeholder="Bono o Incentivo" maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__curp">CURP</label>
+									<input class="form-control" id="txt__curp" type="text" name="CURP"
+										placeholder="CURP" maxlength="20" onkeypress=" return(((event.keyCode > 64) && (event.keyCode < 91)) ||
+									((event.keyCode > 47) && (event.keyCode < 58)))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+								</div>
+								<div class="form-group">
+									<label class="form-control-label" for="txt__netoEmpleado">Neto del Empleado</label>
+									<input class="form-control" id="txt__netoEmpleado" type="text" name="NetoEmpleado"
+										placeholder="Empleado" maxlength="20" onkeypress=" return(((event.keyCode > 47) && (event.keyCode < 58)) ||
+												(event.keyCode == 44) || (event.keyCode == 46) || (event.keyCode == 36) || (event.keyCode == 32))"
+										oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+								</div>
+							</div>
+						</div>
+						<!--End-->
+						<div class="formulario__mensaje" id="formulario__mensaje">
+							<p>
+								<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <b>Error:</b> Por favor
+								rellena el formulario correctamente.
+							</p>
+						</div>
+
+						<div class="tile-footer formulario__grupo formulario__grupo-btn-enviar">
+							<button class="btn btn-primary formulario__btn btn-register" type="submit">
+								Enviar
+							</button>
+							<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+								Formulario enviado
+								exitosamente!
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+	<!-- Essential javascripts for application to work-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<!-- The javascript plugin to display page loading on top-->
+	<script src="js/plugins/pace.min.js"></script>
+	<script type="text/javascript" src="js/plugins/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		$('#demoNotify').click(function () {
+			$.notify({
+				title: "Update Complete : ",
+				message: "Something cool is just updated!",
+				icon: 'fa fa-check'
+			}, {
+				type: "info"
+			});
+		});
+		$('#demoSwal').click(function () {
+			swal({
+				title: "Are you sure?",
+				text: "You will not be able to recover this imaginary file!",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonText: "Yes, delete it!",
+				cancelButtonText: "No, cancel plx!",
+				closeOnConfirm: false,
+				closeOnCancel: false
+			}, function (isConfirm) {
+				if (isConfirm) {
+					swal("Deleted!", "Your imaginary file has been deleted.", "success");
+				} else {
+					swal("Cancelled", "Your imaginary file is safe :)", "error");
+				}
+			});
+		});
+	</script>
+	<!-- Page specific javascripts-->
+	<!-- Google analytics script-->
+
+</body>
+
+</html>
